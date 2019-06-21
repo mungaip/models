@@ -692,8 +692,8 @@ def visualize_boxes_and_labels_on_image_array(
     keypoints=None,
     track_ids=None,
     use_normalized_coordinates=False,
-    max_boxes_to_draw=20,
-    min_score_thresh=.5,
+    max_boxes_to_draw=5,
+    min_score_thresh=.1,
     agnostic_mode=False,
     line_thickness=4,
     groundtruth_box_visualization_color='black',
@@ -787,6 +787,9 @@ def visualize_boxes_and_labels_on_image_array(
           else:
             display_str = '{}: ID {}'.format(display_str, track_ids[i])
         box_to_display_str_map[box].append(display_str)
+        # FIXME!! Patryk
+        print(display_str)
+        # FIXME!! END!
         if agnostic_mode:
           box_to_color_map[box] = 'DarkOrange'
         elif track_ids is not None:
